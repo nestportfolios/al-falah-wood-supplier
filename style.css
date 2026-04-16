@@ -1110,6 +1110,85 @@ section {
 }
 
 /* ============================================================
+   NEST PORTFOLIOS CREDIT FLOAT
+   ============================================================ */
+.nest-float {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 20px rgba(206,165,94,0.5), 0 0 30px rgba(206,165,94,0.2);
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+  overflow: hidden;
+  animation: nestPulseGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes nestPulseGlow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(206,165,94,0.5), 0 0 30px rgba(206,165,94,0.2); }
+  50%      { box-shadow: 0 4px 30px rgba(206,165,94,0.7), 0 0 50px rgba(206,165,94,0.35); }
+}
+
+.nest-float::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  animation: nestShimmer 2.5s infinite;
+}
+
+@keyframes nestShimmer {
+  0%   { left: -100%; }
+  100% { left: 100%; }
+}
+
+.nest-float:hover {
+  box-shadow: 0 6px 35px rgba(206,165,94,0.8), 0 0 60px rgba(206,165,94,0.4);
+  transform: translateY(-4px) scale(1.04);
+  animation: none;
+}
+
+.nest-float-icon {
+  font-size: 1.1rem;
+  color: #fff;
+  animation: nestSpin 4s linear infinite;
+}
+
+@keyframes nestSpin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.nest-float-text {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .nest-float {
+    padding: 9px 16px;
+    font-size: 0.72rem;
+    bottom: 20px;
+    left: 16px;
+  }
+}
+
+/* ============================================================
    SCROLL REVEAL / ANIMATIONS
    ============================================================ */
 .reveal {
